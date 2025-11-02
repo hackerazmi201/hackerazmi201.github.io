@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HackerAzmi - Ethical Hacker & Bug Hunter. I find and fix the holes others miss.">
+    <meta name="keywords" content="ethical hacker, bug bounty, penetration testing, cybersecurity, web security">
+    <meta name="author" content="HackerAzmi">
+    <meta property="og:title" content="HackerAzmi - Ethical Hacker & Bug Hunter">
+    <meta property="og:description" content="I find and fix the holes others miss.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>HackerAzmi - Ethical Hacker & Bug Hunter</title>
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Critical CSS inline -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-green: #00ff41;
+            --primary-cyan: #00ffff;
+            --bg-dark: #0a0a0a;
+            --bg-charcoal: #1a1a1a;
+            --text-light: #e0e0e0;
+            --text-muted: #888;
+            --accent-glow: rgba(0, 255, 65, 0.3);
+            --cyan-glow: rgba(0, 255, 255, 0.3);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        
+        .loading-text {
+            font-family: 'Fira Code', monospace;
+            color: var(--primary-green);
+            font-size: 1.2rem;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        
+        .hidden {
+            display: none;
+        }
+    </style>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-text">> sudo ./launch portfolio -- hackerazmi</div>
+    </div>
+
+    <!-- Terminal Header -->
+    <header class="terminal-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-text">HackerAzmi</span>
+                    <span class="cursor-blink">>_</span>
+                    <span class="cursor-blink"></span>
+                </div>
+                <nav class="nav-menu">
+                    <ul class="nav-list">
+                        <li><a href="#home" class="nav-link active">Home</a></li>
+                        <li><a href="#about" class="nav-link">About</a></li>
+                        <li><a href="#services" class="nav-link">Services</a></li>
+                        <li><a href="#projects" class="nav-link">Projects</a></li>
+                        <li><a href="#certificates" class="nav-link">Certificates</a></li>
+                        <li><a href="#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+                <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-3d-container" id="hero3D"></div>
+            <div class="hero-content">
+                <div class="container">
+                    <div class="hero-text">
+                        <h1 class="hero-title">
+                            <span class="typewriter">HackerAzmi</span>
+                        </h1>
+                        <p class="hero-subtitle">
+                            Ethical Hacker & Bug Hunter<br>
+                            <span class="accent-text">I find and fix the holes others miss.</span>
+                        </p>
+                        <div class="hero-buttons">
+                            <button class="btn btn-primary" onclick="scrollToSection('projects')">
+                                <span>View Projects</span>
+                                <span class="btn-icon">></span>
+                            </button>
+                            <button class="btn btn-secondary" onclick="scrollToSection('contact')">
+                                <span>Contact</span>
+                                <span class="btn-icon">></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quick Stats -->
+            <div class="quick-stats">
+                <div class="container">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number" data-target="50">0</div>
+                            <div class="stat-label">Projects</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" data-target="20">0</div>
+                            <div class="stat-label">Companies Secured</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" data-target="15">0</div>
+                            <div class="stat-label">Certificates</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" data-target="3">0</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">About Me</h2>
+                    <div class="terminal-prompt">> whoami</div>
+                </div>
+                
+                <div class="about-content">
+                    <div class="bio-section">
+                        <div class="bio-text">
+                            <p>Student of BTech at Integral University, passionate about cybersecurity and ethical hacking. I specialize in finding vulnerabilities before malicious actors do, helping organizations strengthen their digital defenses.</p>
+                            <p>As a bug bounty hunter, I've helped secure numerous companies and discovered critical vulnerabilities that could have led to significant data breaches.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="skills-section">
+                        <h3 class="skills-title">Skills & Technologies</h3>
+                        <div class="skills-grid">
+                            <div class="skill-category">
+                                <h4>Programming Languages</h4>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">C</span>
+                                    <span class="skill-tag">C++</span>
+                                    <span class="skill-tag">Python</span>
+                                    <span class="skill-tag">Bash</span>
+                                    <span class="skill-tag">JavaScript</span>
+                                </div>
+                            </div>
+                            <div class="skill-category">
+                                <h4>Web Technologies</h4>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">HTML</span>
+                                    <span class="skill-tag">CSS</span>
+                                    <span class="skill-tag">JavaScript</span>
+                                    <span class="skill-tag">SQL</span>
+                                </div>
+                            </div>
+                            <div class="skill-category">
+                                <h4>Security Tools</h4>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">Burp Suite</span>
+                                    <span class="skill-tag">OWASP ZAP</span>
+                                    <span class="skill-tag">Nmap</span>
+                                    <span class="skill-tag">Metasploit</span>
+                                </div>
+                            </div>
+                            <div class="skill-category">
+                                <h4>Cloud & DevOps</h4>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">AWS</span>
+                                    <span class="skill-tag">Docker</span>
+                                    <span class="skill-tag">Kubernetes</span>
+                                    <span class="skill-tag">Linux</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-section">
+                        <h3 class="timeline-title">Experience Timeline</h3>
+                        <div class="timeline" id="timeline3D">
+                            <div class="timeline-item">
+                                <div class="timeline-marker"></div>
+                                <div class="timeline-content">
+                                    <h4>Bug Bounty Hunter</h4>
+                                    <span class="timeline-date">2022 - Present</span>
+                                    <p>Successfully discovered and reported vulnerabilities across multiple platforms, earning recognition from various organizations like Acer, HP, Lenevo, Ahaguru, mamaearth etc 20+</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker"></div>
+                                <div class="timeline-content">
+                                    <h4>Cybersecurity Intern</h4>
+                                    <span class="timeline-date">2024 - 2025</span>
+                                    <p>Conducted penetration testing and vulnerability assessments for various clients, improving their security posture.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker"></div>
+                                <div class="timeline-content">
+                                    <h4>BTech Student</h4>
+                                    <span class="timeline-date">2024 - Present</span>
+                                    <p>Pursuing Bachelor of Technology at Integral University with focus on cybersecurity and ethical hacking.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Services</h2>
+                    <div class="terminal-prompt">> services --list</div>
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-card" data-service="pentest">
+                        <div class="service-icon">🔒</div>
+                        <h3 class="service-title">Penetration Testing</h3>
+                        <p class="service-description">Comprehensive security assessments to identify vulnerabilities in your systems before attackers do.</p>
+                        <div class="service-tech">
+                            <span class="tech-tag">Burp Suite</span>
+                            <span class="tech-tag">OWASP ZAP</span>
+                            <span class="tech-tag">Nmap</span>
+                        </div>
+                        <button class="service-cta" onclick="openContactModal('Penetration Testing')">
+                            Request Audit
+                        </button>
+                    </div>
+                    
+                    <div class="service-card" data-service="bugbounty">
+                        <div class="service-icon">🎯</div>
+                        <h3 class="service-title">Bug Bounty</h3>
+                        <p class="service-description">Professional bug hunting services to help organizations identify and fix security vulnerabilities.</p>
+                        <div class="service-tech">
+                            <span class="tech-tag">Manual Testing</span>
+                            <span class="tech-tag">Automation</span>
+                            <span class="tech-tag">Reporting</span>
+                        </div>
+                        <button class="service-cta" onclick="openContactModal('Bug Bounty')">
+                            Request Audit
+                        </button>
+                    </div>
+                    
+                    <div class="service-card" data-service="webapp">
+                        <div class="service-icon">🌐</div>
+                        <h3 class="service-title">Web App Security</h3>
+                        <p class="service-description">Specialized security testing for web applications, APIs, and modern web technologies.</p>
+                        <div class="service-tech">
+                            <span class="tech-tag">OWASP Top 10</span>
+                            <span class="tech-tag">API Testing</span>
+                            <span class="tech-tag">XSS/SQLi</span>
+                        </div>
+                        <button class="service-cta" onclick="openContactModal('Web App Security')">
+                            Request Audit
+                        </button>
+                    </div>
+                    
+                    <div class="service-card" data-service="cloud">
+                        <div class="service-icon">☁️</div>
+                        <h3 class="service-title">Cloud Security</h3>
+                        <p class="service-description">Security assessments for cloud infrastructure, configurations, and deployment pipelines.</p>
+                        <div class="service-tech">
+                            <span class="tech-tag">AWS</span>
+                            <span class="tech-tag">Azure</span>
+                            <span class="tech-tag">GCP</span>
+                        </div>
+                        <button class="service-cta" onclick="openContactModal('Cloud Security')">
+                            Request Audit
+                        </button>
+                    </div>
+                    
+                    <div class="service-card" data-service="codereview">
+                        <div class="service-icon">📝</div>
+                        <h3 class="service-title">Secure Code Review</h3>
+                        <p class="service-description">Thorough code analysis to identify security vulnerabilities and provide remediation guidance.</p>
+                        <div class="service-tech">
+                            <span class="tech-tag">Static Analysis</span>
+                            <span class="tech-tag">Code Review</span>
+                            <span class="tech-tag">Best Practices</span>
+                        </div>
+                        <button class="service-cta" onclick="openContactModal('Secure Code Review')">
+                            Request Audit
+                        </button>
+                    </div>
+                    
+                    <div class="service-card" data-service="design">
+                        <div class="service-icon">🎨</div>
+                        <h3 class="service-title">3D/UX Design</h3>
+                        <p class="service-description">Modern web design with 3D elements and exceptional user experience for security-focused applications.</p>
+                        <div class="service-tech">
+                            <span class="tech-tag">Three.js</span>
+                            <span class="tech-tag">GSAP</span>
+                            <span class="tech-tag">WebGL</span>
+                        </div>
+                        <button class="service-cta" onclick="openContactModal('3D/UX Design')">
+                            Request Audit
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Projects</h2>
+                    <div class="terminal-prompt">> ls projects/</div>
+                </div>
+                
+                <div class="project-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="web">Web</button>
+                    <button class="filter-btn" data-filter="binary">Binary</button>
+                    <button class="filter-btn" data-filter="ctf">CTF</button>
+                    <button class="filter-btn" data-filter="bugbounty">Bug Bounty</button>
+                    <button class="filter-btn" data-filter="automation">Automation</button>
+                </div>
+                
+                <div class="projects-grid">
+                    <div class="project-card" data-category="web">
+                        <div class="project-preview">
+                            <div class="project-thumbnail">
+                                <div class="project-placeholder">Web Security Scanner</div>
+                            </div>
+                            <div class="project-overlay">
+                                <h3 class="project-title">Web Security Scanner</h3>
+                                <p class="project-description">Automated web application security scanner with custom payloads and reporting.</p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Python</span>
+                                    <span class="tech-tag">Requests</span>
+                                    <span class="tech-tag">BeautifulSoup</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <button class="project-btn" onclick="openProjectModal('web-scanner')">Inspect</button>
+                            <a href="#" class="project-btn">View Source</a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card" data-category="binary">
+                        <div class="project-preview">
+                            <div class="project-thumbnail">
+                                <div class="project-placeholder">Buffer Overflow Exploit</div>
+                            </div>
+                            <div class="project-overlay">
+                                <h3 class="project-title">Buffer Overflow Exploit</h3>
+                                <p class="project-description">Custom buffer overflow exploit development for educational purposes.</p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">C</span>
+                                    <span class="tech-tag">Assembly</span>
+                                    <span class="tech-tag">GDB</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <button class="project-btn" onclick="openProjectModal('buffer-overflow')">Inspect</button>
+                            <a href="#" class="project-btn">View Source</a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card" data-category="ctf">
+                        <div class="project-preview">
+                            <div class="project-thumbnail">
+                                <div class="project-placeholder">CTF Writeups</div>
+                            </div>
+                            <div class="project-overlay">
+                                <h3 class="project-title">CTF Writeups</h3>
+                                <p class="project-description">Collection of Capture The Flag challenge solutions and methodologies.</p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Python</span>
+                                    <span class="tech-tag">Bash</span>
+                                    <span class="tech-tag">Crypto</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <button class="project-btn" onclick="openProjectModal('ctf-writeups')">Inspect</button>
+                            <a href="#" class="project-btn">View Source</a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card" data-category="bugbounty">
+                        <div class="project-preview">
+                            <div class="project-thumbnail">
+                                <div class="project-placeholder">Bug Bounty Tools</div>
+                            </div>
+                            <div class="project-overlay">
+                                <h3 class="project-title">Bug Bounty Tools</h3>
+                                <p class="project-description">Custom tools and scripts for efficient bug bounty hunting and reconnaissance.</p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Python</span>
+                                    <span class="tech-tag">Go</span>
+                                    <span class="tech-tag">Bash</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <button class="project-btn" onclick="openProjectModal('bugbounty-tools')">Inspect</button>
+                            <a href="#" class="project-btn">View Source</a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card" data-category="automation">
+                        <div class="project-preview">
+                            <div class="project-thumbnail">
+                                <div class="project-placeholder">Security Automation</div>
+                            </div>
+                            <div class="project-overlay">
+                                <h3 class="project-title">Security Automation</h3>
+                                <p class="project-description">Automated security testing pipelines and CI/CD integration tools.</p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Python</span>
+                                    <span class="tech-tag">Docker</span>
+                                    <span class="tech-tag">GitHub Actions</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <button class="project-btn" onclick="openProjectModal('security-automation')">Inspect</button>
+                            <a href="#" class="project-btn">View Source</a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card" data-category="web">
+                        <div class="project-preview">
+                            <div class="project-thumbnail">
+                                <div class="project-placeholder">Portfolio Website</div>
+                            </div>
+                            <div class="project-overlay">
+                                <h3 class="project-title">Portfolio Website</h3>
+                                <p class="project-description">This very website - showcasing modern web development with 3D elements.</p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">HTML</span>
+                                    <span class="tech-tag">CSS</span>
+                                    <span class="tech-tag">JavaScript</span>
+                                    <span class="tech-tag">Three.js</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <button class="project-btn" onclick="openProjectModal('portfolio')">Inspect</button>
+                            <a href="#" class="project-btn">View Source</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certificates Section -->
+        <section id="certificates" class="certificates-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Certificates</h2>
+                    <div class="terminal-prompt">> certificates </div>
+                </div>
+                
+                <div class="certificates-shelf" id="certificates3D">
+                    <div class="certificate-card">
+                        <div class="certificate-front">
+                            <div class="cert-logo">N|DE</div>
+                            <h3 class="cert-title">Network Defense Essentials</h3>
+                        </div>
+                        <div class="certificate-back">
+                            <h4>EC-Council</h4>
+                            <p class="cert-date">2023</p>
+                            <p class="cert-description">Fundamentals of network security and defense strategies.</p>
+                            <!-- <a href="#" class="cert-verify">Verify</a> -->
+                        </div>
+                    </div>
+                    
+                    <div class="certificate-card">
+                        <div class="certificate-front">
+                            <div class="cert-logo">ICIp</div>
+                            <h3 class="cert-title">Incident Response</h3>
+                        </div>
+                        <div class="certificate-back">
+                            <h4>EC-Council</h4>
+                            <p class="cert-date">2023</p>
+                            <p class="cert-description">Incident handling and response methodologies.</p>
+                            <!-- <a href="#" class="cert-verify">Verify</a> -->
+                        </div>
+                    </div>
+                    
+                    <div class="certificate-card">
+                        <div class="certificate-front">
+                            <div class="cert-logo">THM</div>
+                            <h3 class="cert-title">TryHackMe</h3>
+                        </div>
+                        <div class="certificate-back">
+                            <h4>TryHackMe</h4>
+                            <p class="cert-date">2022-2023</p>
+                            <p class="cert-description">Multiple cybersecurity learning paths completed.</p>
+                            <!-- <a href="#" class="cert-verify">Verify</a> -->
+                        </div>
+                    </div>
+                    
+                    <div class="certificate-card">
+                        <div class="certificate-front">
+                            <div class="cert-logo">HTB</div>
+                            <h3 class="cert-title">Hack The Box</h3>
+                        </div>
+                        <div class="certificate-back">
+                            <h4>Hack The Box</h4>
+                            <p class="cert-date">2022-2023</p>
+                            <p class="cert-description">Penetration testing challenges and CTF competitions.</p>
+                            <!-- <a href="#" class="cert-verify">Verify</a> -->
+                        </div>
+                    </div>
+                    
+                    <div class="certificate-card">
+                        <div class="certificate-front">
+                            <div class="cert-logo">AWS</div>
+                            <h3 class="cert-title">AWS Security</h3>
+                        </div>
+                        <div class="certificate-back">
+                            <h4>Amazon Web Services</h4>
+                            <p class="cert-date">2023</p>
+                            <p class="cert-description">Cloud security fundamentals and best practices.</p>
+                            <!-- <a href="#" class="cert-verify">Verify</a> -->
+                        </div>
+                    </div>
+                    
+                    <div class="certificate-card">
+                        <div class="certificate-front">
+                            <div class="cert-logo">OWASP</div>
+                            <h3 class="cert-title">OWASP Top 10</h3>
+                        </div>
+                        <div class="certificate-back">
+                            <h4>OWASP Foundation</h4>
+                            <p class="cert-date">2024</p>
+                            <p class="cert-description">Web application security vulnerabilities and mitigation.</p>
+                            <!-- <a href="#" class="cert-verify">Verify</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Contact</h2>
+                    <div class="terminal-prompt">> contact --init</div>
+                </div>
+                
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Get In Touch</h3>
+                        <p>Ready to secure your systems? Let's discuss your security needs.</p>
+                        
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <span class="method-icon">📧</span>
+                                <div class="method-info">
+                                    <h4>Email</h4>
+                                    <a href="mailto:hackerazmi@example.com">hackerazmi201@gmail.coom</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <span class="method-icon">💼</span>
+                                <div class="method-info">
+                                    <h4>LinkedIn</h4>
+                                    <a href="https://www.linkedin.com/in/mohammad-ayan-57992532a/" target="_blank">linkedin.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <span class="method-icon">🐙</span>
+                                <div class="method-info">
+                                    <h4>GitHub</h4>
+                                    <a href="https://github.com/hackerazmi201" target="_blank">github.com/hackerazmi</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form-container">
+  <form id="contactForm" class="contact-form" 
+        action="https://api.web3forms.com/submit" 
+        method="POST">
+
+    <input type="hidden" name="access_key" value="1f1dd17e-a920-46cc-b0cb-649d97e26458" />
+    <input type="hidden" name="subject" value="New message from portfolio site" />
+    <input type="hidden" name="redirect" value="https://web3forms.com/success" />
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required placeholder="Your name">
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required placeholder="your@email.com">
+    </div>
+
+    <div class="form-group">
+      <label for="subject">Subject</label>
+      <input type="text" id="subject" name="subject" placeholder="What's this about?">
+    </div>
+
+    <div class="form-group">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required placeholder="Tell me about your security needs..."></textarea>
+    </div>
+
+    <button type="submit" class="submit-btn">
+      <span>Send Message</span>
+      <span class="btn-icon">></span>
+    </button>
+  </form>
+</div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#services">Services</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#certificates">Certificates</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-legal">
+                    <p>&copy; 2024 HackerAzmi. All rights reserved.</p>
+                </div>
+                <div class="footer-signature">
+                    <pre class="ascii-art">
+    _   _                  _                                              _ 
+ | | | |   __ _    ___  | | __   ___   _ __    __ _   ____  _ __ ___   (_)
+ | |_| |  / _` |  / __| | |/ /  / _ \ | '__|  / _` | |_  / | '_ ` _ \  | |
+ |  _  | | (_| | | (__  |   <  |  __/ | |    | (_| |  / /  | | | | | | | |
+ |_| |_|  \__,_|  \___| |_|\_\  \___| |_|     \__,_| /___| |_| |_| |_| |_|
+                                                                          
+
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Modal -->
+    <div class="modal" id="projectModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeProjectModal()">&times;</button>
+            <div class="modal-body" id="projectModalBody">
+                <!-- Project details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div class="modal" id="contactModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeContactModal()">&times;</button>
+            <div class="modal-body">
+                <h3>Request Security Audit</h3>
+                <p>Interested in <span id="serviceType"></span>? Let's discuss your requirements.</p>
+                <button class="btn btn-primary" onclick="scrollToSection('contact')">Go to Contact Form</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast" id="toast">
+        <div class="toast-content">
+            <span class="toast-icon">✓</span>
+            <span class="toast-message"></span>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/3d-scenes.js"></script>
+    <script src="scripts/animations.js"></script>
+</body>
+</html>

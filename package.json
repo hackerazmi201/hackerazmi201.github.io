@@ -1,0 +1,46 @@
+{
+  "name": "hackerazmi-portfolio",
+  "version": "1.0.0",
+  "description": "A modern, fully 3D portfolio website with a hacker/cyberpunk terminal aesthetic",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "serve": "npx http-server -p 8000",
+    "dev": "npx live-server --port=8000 --open=/",
+    "build": "echo 'Static site - no build process needed'",
+    "deploy": "vercel --prod",
+    "test": "echo 'No tests configured'"
+  },
+  "keywords": [
+    "portfolio",
+    "cyberpunk",
+    "hacker",
+    "3d",
+    "threejs",
+    "gsap",
+    "webgl",
+    "responsive"
+  ],
+  "author": "HackerAzmi",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/username/hacker-portfolio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/username/hacker-portfolio/issues"
+  },
+  "homepage": "https://yourdomain.com",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
