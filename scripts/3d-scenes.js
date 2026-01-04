@@ -1,6 +1,8 @@
 // 3D Scenes JavaScript for Hacker Portfolio
 
 // Global 3D scene variables
+const isMobile = window.innerWidth <= 768;
+
 let scenes = {};
 let renderers = {};
 let cameras = {};
@@ -144,7 +146,8 @@ function createTerminalFragments(scene) {
 
 // Create matrix rain effect
 function createMatrixRain(scene) {
-    const particleCount = 2000;
+    const particleCount = isMobile ? 300 : 2000;
+
     const geometry = new THREE.BufferGeometry();
     const positions = new Float32Array(particleCount * 3);
     const colors = new Float32Array(particleCount * 3);
@@ -578,3 +581,4 @@ if (window.innerWidth <= 768) {
 window.initialize3DScenes = initialize3DScenes;
 window.cleanup3DScenes = cleanup3DScenes;
 window.optimizeForMobile = optimizeForMobile;
+
