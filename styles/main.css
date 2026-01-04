@@ -1366,3 +1366,49 @@ a:focus {
         padding: 2rem 0;
     }
 }
+
+@media (max-width: 768px) {
+
+  h1 { font-size: 2.2rem; }
+  h2 { font-size: 1.8rem; }
+
+  .hero-section {
+    min-height: auto;
+    padding-top: 6rem;
+  }
+
+  .hero-3d-container {
+    display: none; /* mobile pe 3D off */
+  }
+
+  .quick-stats {
+    position: static;
+    margin-top: 2rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .services-grid,
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline::before {
+    left: 10px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    left: 0 !important;
+    padding-left: 2rem;
+    padding-right: 0;
+  }
+
+  .timeline-marker {
+    left: 0 !important;
+  }
+}
+
