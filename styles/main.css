@@ -1,61 +1,10 @@
-/* =====================================
-   🔥 FINAL HARD OVERRIDES (DO NOT TOUCH)
-===================================== */
-
-/* 1️⃣ Kill browser default styles */
-ul, li {
-  list-style: none !important;
-  padding: 0;
-  margin: 0;
+body {
+  background: black;
+  color: #00ff41;
+  font-family: monospace;
 }
 
 a {
-  color: inherit;
+  color: #00ff41;
   text-decoration: none;
-}
-
-/* 2️⃣ Force navbar layout back */
-.nav-menu {
-  display: flex !important;
-}
-
-.nav-list {
-  display: flex !important;
-  gap: 1.5rem;
-}
-
-/* 3️⃣ Hero section FINAL fix */
-.hero-section {
-  min-height: calc(100vh - 72px) !important;
-  padding-top: 72px !important;
-}
-
-/* 4️⃣ Buttons desktop normal */
-.btn {
-  width: auto !important;
-}
-
-/* 5️⃣ Mobile-only rules (LOCKED) */
-@media (max-width: 768px) {
-
-  .nav-menu {
-    display: none !important;
-  }
-
-  .mobile-menu-toggle {
-    display: flex !important;
-  }
-
-  .btn {
-    width: 100% !important;
-  }
-
-  .hero-3d-container {
-    display: none !important;
-  }
-}
-
-/* 6️⃣ Absolute last safety */
-body {
-  overflow-x: hidden !important;
 }
