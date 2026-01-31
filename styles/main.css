@@ -1,127 +1,97 @@
-/* ================================
-   GLOBAL SAFETY (MOST IMPORTANT)
-================================ */
+/* ================= RESET SAFETY ================= */
 html, body {
+  margin: 0;
+  padding: 0;
   width: 100%;
-  max-width: 100%;
-  overflow-x: hidden !important;
+  overflow-x: hidden;
 }
 
 * {
   box-sizing: border-box;
-  max-width: 100%;
 }
 
-/* ================================
-   HERO 3D FIX (ROOT CAUSE)
-================================ */
-.hero-section {
-  position: relative;
-  overflow: hidden;
+/* ================= HEADER FIX ================= */
+.terminal-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: #0a0a0a;
 }
 
-.hero-3d-container {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  pointer-events: none;
+/* ================= NAV FIX ================= */
+.nav-menu {
+  display: flex;
 }
 
-.hero-3d-container canvas {
-  display: block;
-  width: 100% !important;
-  height: 100% !important;
-}
-
-/* ================================
-   GRID FIXES (NO MORE SIDE SCROLL)
-================================ */
-.services-grid,
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+.nav-list {
+  list-style: none;
+  display: flex;
   gap: 1.5rem;
+  padding: 0;
+  margin: 0;
 }
 
-/* ================================
-   TIMELINE FIX (BIG CULPRIT)
-================================ */
-.timeline-item {
+.nav-list li {
+  list-style: none;
+}
+
+/* ================= HERO FIX ================= */
+.hero-section {
+  min-height: calc(100vh - 70px);
+  padding-top: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content {
+  text-align: center;
   width: 100%;
-  left: 0 !important;
-  padding-left: 2.5rem;
-  padding-right: 0;
 }
 
-/* ================================
-   CERTIFICATES FIX
-================================ */
+/* ================= BUTTON FIX ================= */
+.btn {
+  width: auto;
+}
+
+/* ================= GRID FIX ================= */
+.services-grid,
+.projects-grid,
 .certificates-shelf {
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
-/* ================================
-   MOBILE OVERRIDES (FINAL AUTHORITY)
-================================ */
+/* ================= MOBILE ONLY ================= */
 @media (max-width: 768px) {
 
-  /* Turn off 3D completely */
-  .hero-3d-container {
-    display: none !important;
+  .nav-menu {
+    display: none;
   }
 
-  /* Grids */
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  .hero-3d-container {
+    display: none;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
   .services-grid,
   .projects-grid,
   .certificates-shelf {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* Timeline */
-  .timeline::before {
-    left: 12px;
-  }
-
-  .timeline-item {
-    padding-left: 2rem !important;
-  }
-
-  .timeline-marker {
-    left: 0 !important;
-  }
-
-  /* Stats */
-  .stats-grid {
     grid-template-columns: 1fr;
   }
 
-  /* Buttons */
-  .btn {
+  .timeline-item {
     width: 100%;
-    justify-content: center;
-  }
-
-  /* Disable hover-only transforms */
-  .service-card:hover,
-  .project-card:hover,
-  .certificate-card:hover {
-    transform: none;
+    left: 0 !important;
+    padding-left: 2rem;
   }
 }
-
-/* ================================
-   SMALL SCREENS
-================================ */
-@media (max-width: 480px) {
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.6rem; }
-
-  .container {
-    padding: 0 1rem;
-  }
-}
-
-
-
