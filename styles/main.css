@@ -122,33 +122,6 @@ html, body {
     padding: 0 1rem;
   }
 }
-/* ================================
-   MOBILE HERO HEIGHT FIX (CRITICAL)
-================================ */
 
-/* Header height variable */
-:root {
-  --header-height: 72px;
-}
-
-/* Mobile viewport bug fix */
-.hero-section {
-  min-height: calc(100svh - var(--header-height));
-  padding-top: var(--header-height);
-}
-
-/* Fallback for older browsers */
-@supports not (height: 100svh) {
-  .hero-section {
-    min-height: calc(100vh - var(--header-height));
-  }
-}
-
-/* Ensure hero content stays centered */
-.hero-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
 
 
